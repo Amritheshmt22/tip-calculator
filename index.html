@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Frontend practice project</p>
+      <h1 id="page-title">Tip Calculator</h1>
+      <p class="intro">Enter a bill, choose a tip and split the total fairly between people.</p>
+    </section>
+
+    <section class="calculator-card" aria-label="Tip calculator">
+      <div class="form-grid">
+        <label class="field">
+          <span>Bill amount</span>
+          <div class="input-shell">
+            <span class="prefix">₹</span>
+            <input id="billInput" type="number" min="0" step="0.01" inputmode="decimal" placeholder="1000.00">
+          </div>
+        </label>
+
+        <div class="field">
+          <span>Tip percentage</span>
+          <div class="tip-grid" role="group" aria-label="Tip percentage">
+            <button class="tip-button" type="button" data-tip="5">5%</button>
+            <button class="tip-button active" type="button" data-tip="10" aria-pressed="true">10%</button>
+            <button class="tip-button" type="button" data-tip="15">15%</button>
+            <button class="tip-button" type="button" data-tip="20">20%</button>
+            <input id="customTipInput" type="number" min="0" step="0.1" inputmode="decimal" placeholder="Custom" aria-label="Custom tip percentage">
+          </div>
+        </div>
+
+        <label class="field">
+          <span>People</span>
+          <div class="people-control">
+            <button id="decreasePeople" class="step-button" type="button" aria-label="Decrease people">−</button>
+            <input id="peopleInput" type="number" min="1" step="1" value="1" inputmode="numeric">
+            <button id="increasePeople" class="step-button" type="button" aria-label="Increase people">+</button>
+          </div>
+        </label>
+      </div>
+
+      <p id="errorText" class="error-text" role="alert" hidden></p>
+
+      <div class="results-grid" aria-live="polite">
+        <article class="result-card">
+          <span>Tip amount</span>
+          <strong id="tipAmount">₹0.00</strong>
+        </article>
+        <article class="result-card">
+          <span>Total bill</span>
+          <strong id="totalAmount">₹0.00</strong>
+        </article>
+        <article class="result-card highlight">
+          <span>Each person pays</span>
+          <strong id="perPersonAmount">₹0.00</strong>
+        </article>
+        <article class="result-card">
+          <span>Tip per person</span>
+          <strong id="tipPerPerson">₹0.00</strong>
+        </article>
+      </div>
+
+      <div class="actions">
+        <button id="roundButton" class="secondary-button" type="button">Round per person up</button>
+        <button id="resetButton" class="secondary-button" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="note-card" aria-labelledby="note-title">
+      <h2 id="note-title">How it helps</h2>
+      <p>Use preset tip buttons for common rates, or enter a custom percentage. The calculator saves your last inputs in this browser and updates every result as you type.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
